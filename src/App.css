@@ -1,32 +1,197 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display|Roboto');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========= Main CSS variables ======= */
+:root {
+  --blue: #3D5A80;
+  --pale-blue: #E0FBFC;
+  --light-red: #EE6C4D;
+  --black: #293241;
+  --main-font-size: 20px;
+  --main-padding: 15px;
+  --main-margin: 15px;
+  --big-padding: 25px;
+  --big-margin: 25px;
+  --heading: 'Playfair Display', serif;
+  --main: 'Roboto', sans-serif;
+}
+
+body {
+	font-size: var(--main-font-size);
+  color: var(--black);
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-family: var(--heading);
   text-align: center;
+  margin-top: var(--big-margin);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
+/* ========= Main page style ======= */
+.main-page-container {
+  background: var(--pale-blue);
   min-height: 100vh;
+  min-width: 100vw;
   display: flex;
-  flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
   align-items: center;
+  -webkit-box-align: center;
+    -ms-flex-align: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  -webkit-box-pack: center;
+    -ms-flex-pack: center;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+}
+
+
+.main-page-container img {
+  width: 100%;
+  max-width: 600px;
+  padding: var(--main-padding);
+}
+
+.store-button {
+  width: 200px;
+  height: 70px;
+  font-size: 20px;
+  background: var(--blue);
+  box-shadow: 0 4px 4px #4e5374ba;
+  border: 0;
   color: white;
+  border-radius: 7px;
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.store-button span {
+  padding-left: 15px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.store-button span:after {
+  content: '»';
+  position: relative;
+  opacity: 0;
+  right: -20px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+}
+
+.store-button:hover span:after,
+.store-button:focus span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.store-button:hover span,
+.store-button:focus span {
+  padding-right: 25px;
+}
+
+.store-button:hover,
+.store-button:focus {
+  outline: 0;
+  width: 250px;
+  background: var(--light-red);
+  box-shadow: 0 4px 4px #bc7c6cb0;
+}
+
+@media screen and (min-width: 1000px) {
+  .main-page-container {
+    flex-direction: row;
+    -webkit-flex-direction: row;
   }
-  to {
-    transform: rotate(360deg);
+  .main-page-container img {
+    padding: 55px;
   }
+  .store-button {
+    width: 250px;
+  }
+}
+
+/* ========= Top Navigation style ======= */
+.topnav {
+  padding: 10px 15px;
+  background-color: white;
+  box-shadow: 0 4px 4px #e2e2e2;
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  flex: 20% auto;
+  width: 100%;
+}
+
+.topnav img {
+  height: 95px;
+}
+
+.right-align {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-end;
+  -ms-justify-content: flex-end;
+  justify-content: flex-end;
+  -ms-flex-pack: flex-end;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+
+.topnav button,
+.select-category button {
+  text-align: center;
+  padding: var(--main-padding);
+  margin-left: 5px;
+  text-decoration: none;
+  color: white;
+  background: var(--light-red);
+  box-shadow: 0 4px 4px #bc7c6cb0;
+  border: 0;
+  border-radius: 7px;
+  font-family: var(--main);
+  font-size: 25px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.topnav button:hover,
+.topnav button:active,
+.select-category button:hover,
+.select-category button:active {
+  background: var(--blue);
+  box-shadow: 0 4px 4px #4e5374ba;
+}
+
+/* ========= Shop category filter ======= */
+.select-category {
+  margin-top: var(--main-margin);
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
 }
