@@ -189,6 +189,18 @@ h2 {
   color: white;
 }
 
+.card-button[disabled] {
+  background-color: transparent;
+  cursor: default;
+  padding: 0;
+}
+
+.card-button[disabled]:hover {
+  color: #d12028;
+  cursor: not-allowed;
+  box-shadow: 0 0 0 #ffffff;
+}
+
 /* ========= Shop category filter ======= */
 .select-category {
   margin-top: var(--main-margin);
@@ -375,7 +387,7 @@ h2 {
   display: none !important;
 }
 
-.modal-content {  
+.modal-content {
   -webkit-animation-name: zoom;
   -webkit-animation-duration: 0.6s;
   animation-name: zoom;
