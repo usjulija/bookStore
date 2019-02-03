@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductCard from './ProductCard'
+import ProductCard from './ProductCard';
 
 class ProductsGallery extends React.Component {
   render() {
@@ -8,8 +8,11 @@ class ProductsGallery extends React.Component {
         {Object.keys(this.props.books).map(key => (
           <ProductCard
             key={key}
-            ndex={key}
-            details={this.props.books[key]}/>
+            index={key}
+            details={this.props.books[key]}
+            toggleModal={this.props.toggleModal}
+            modal={this.props.modal}
+            />
         ))}
       </div>
     )

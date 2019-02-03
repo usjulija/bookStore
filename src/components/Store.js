@@ -7,7 +7,8 @@ import sampleBooks from '../books-data';
 class Store extends React.Component {
   state = {
     books: sampleBooks,
-    order: {}
+    order: {},
+    modal: false
   };
 
   sortByCategory = (query) => {
@@ -33,12 +34,28 @@ class Store extends React.Component {
     this.setState({ books: myBooks });
   }
 
+  toggleModal = (query) => {
+    const myBooks = {...this.state.books};
+    Object.keys(myBooks).filter(key => {
+      if(query === myBooks[key].name) {
+        if (myBooks[key].modalVisible === true) {
+          myBooks[key].modalVisible = false;
+          this.setState({ modal: false });
+        } else {
+          myBooks[key].modalVisible = true;
+          this.setState({ modal: true });
+        }
+      }
+    });
+    this.setState({ books: myBooks });
+  }
+
   render() {
     return (
       <React.Fragment>
-        <NavMenu />
-        <StoreCategory books={this.state.books} sortByCategory={this.sortByCategory}/>
-        <ProductsGallery books={this.state.books}/>
+        <NavMenu modal={this.state.modal}/>
+        <StoreCategory books={this.state.books} sortByCategory={this.sortByCategory} modal={this.state.modal}/>
+        <ProductsGallery books={this.state.books} toggleModal={this.toggleModal} modal={this.state.modal}/>
       </React.Fragment>
     )
   }

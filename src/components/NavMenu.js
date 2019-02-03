@@ -3,12 +3,13 @@ import logo from './images/logo.png'
 
 class NavMenu extends React.Component {
   render() {
+    const tabindex = this.props.modal ? "-1" : "0";
     return (
       <nav className="topnav" id="nav">
         <img src={logo} alt="logo with books"/>
         <div className="right-align">
-          <button><span role="img" aria-label="shopping cart" title="cart">🛒</span></button>
-          <button><span role="img" aria-label="manage inventory" title="manage shop">⚙️</span></button>
+          <button tabIndex={tabindex} title="cart"><span role="img" aria-label="shopping cart">🛒</span></button>
+          <button tabIndex={tabindex} title="manage shop"><span role="img" aria-label="manage inventory">⚙️</span></button>
         </div>
       </nav>
     )

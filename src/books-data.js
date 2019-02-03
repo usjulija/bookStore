@@ -9,7 +9,8 @@ const books = {
     available: true,
     author: "J. R. R. Tolkien",
     category: "fantasy",
-    visible: true
+    visible: true,
+    modalVisible: false
   },
 
   book2: {
@@ -21,7 +22,8 @@ const books = {
     available: true,
     author: "George Orwell",
     category: "fiction",
-    visible: true
+    visible: true,
+    modalVisible: false
   },
 
   book3: {
@@ -33,7 +35,8 @@ const books = {
     available: false,
     author: "Elizabeth Bennet",
     category: "novel",
-    visible: true
+    visible: true,
+    modalVisible: false
   },
 
   book4: {
@@ -45,7 +48,8 @@ const books = {
     available: true,
     author: "John Steinbeck",
     category: "novel",
-    visible: true
+    visible: true,
+    modalVisible: false
   },
 
   book5: {
@@ -57,7 +61,8 @@ const books = {
     available: true,
     author: "Harper Lee",
     category: "novel",
-    visible: true
+    visible: true,
+    modalVisible: false
   },
 
   book6: {
@@ -69,7 +74,8 @@ const books = {
     available: true,
     author: "Charlotte Bronte",
     category: "novel",
-    visible: true
+    visible: true,
+    modalVisible: false
   },
 
   book7: {
@@ -81,7 +87,8 @@ const books = {
     available: true,
     author: "Emily Bronte",
     category: "novel",
-    visible: true
+    visible: true,
+    modalVisible: false
   },
 
   book8: {
@@ -93,7 +100,8 @@ const books = {
     available: true,
     author: "E.M. Forster",
     category: "novel",
-    visible: true
+    visible: true,
+    modalVisible: false
   },
 
   book9: {
@@ -105,7 +113,8 @@ const books = {
     available: true,
     author: "E.M. Forster",
     category: "fantasy",
-    visible: true
+    visible: true,
+    modalVisible: false
   }
 };
 
