@@ -1,5 +1,5 @@
 import React from 'react';
-import mainImage from './main.svg';
+import mainImage from './images/main.svg';
 
 class MainPage extends React.Component {
   loadStore= () => {
