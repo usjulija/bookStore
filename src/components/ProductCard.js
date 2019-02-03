@@ -23,7 +23,7 @@ class ProductCard extends React.Component {
           </div>
           <img className="cover" src={image} alt={name}/>
           <div className="card-footer">
-            <button disabled={!available} tabIndex={tabindex} title={available ? "add to cart" : "sold out"} className="card-button" aria-label="add to cart">
+            <button disabled={!available} tabIndex={tabindex} title={available ? "add to cart" : "sold out"} className="card-button" aria-label="add to cart" onClick={() => {this.props.addToOrder(this.props.index)}}>
               {available ? <img src={cart} alt="cart icon"/> : <img src={sold} alt="cart icon"/>}
             </button>
             <button tabIndex={tabindex} title="book description" className="card-button" aria-label="book description" onClick={() => { this.props.toggleModal(name) }}>

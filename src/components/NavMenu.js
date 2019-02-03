@@ -8,7 +8,7 @@ class NavMenu extends React.Component {
       <nav className="topnav" id="nav">
         <img src={logo} alt="logo with books"/>
         <div className="right-align">
-          <button tabIndex={tabindex} title="cart"><span role="img" aria-label="shopping cart">🛒</span></button>
+          <button tabIndex={tabindex} title="your cart"><span role="img" aria-label="shopping cart" onClick={this.props.toggleCart}>🛒</span></button>
           <button tabIndex={tabindex} title="manage shop"><span role="img" aria-label="manage inventory">⚙️</span></button>
         </div>
       </nav>

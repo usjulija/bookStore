@@ -33,6 +33,12 @@ h2 {
   margin-top: var(--big-margin);
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 /* ========= Main page style ======= */
 .main-page-container {
   background: var(--pale-blue);
@@ -125,6 +131,33 @@ h2 {
   }
 }
 
+/* ========= Store main page ======= */
+.store-main-page {
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+}
+.store-right,
+.store-left {
+  width: 100%;
+}
+
+@media screen and (min-width: 850px) {
+  .store-right,
+  .store-left {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .store-right {
+    width: 70%;
+  }
+  .store-left {
+    width: 30%;
+  }
+}
 /* ========= Top Navigation style ======= */
 .topnav {
   padding: 10px 15px;
@@ -135,6 +168,7 @@ h2 {
   display: -ms-flexbox;
   flex: 20% auto;
   width: 100%;
+  z-index: 5;
 }
 
 .topnav img {
@@ -316,7 +350,7 @@ h2 {
 /* ========= Modal ======= */
 .modal {
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;
@@ -417,5 +451,79 @@ h2 {
     position: relative;
     top: -185px;
     right: 0;
+  }
+}
+
+/* ========= Cart ======= */
+.cart {
+  background-color: var(--pale-blue);
+  padding: 25px;
+}
+
+.cart {
+  -webkit-animation-name: down;
+  -webkit-animation-duration: 0.6s;
+  animation-name: down;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes down {
+  from {-webkit-transform:translateY(-100%)}
+  to {-webkit-transform:translateY(0)}
+}
+
+@keyframes down {
+  from {transform:translateY(-100%)}
+  to {transform:translateY(0)}
+}
+
+@media screen and (min-width: 850px) {
+  @-webkit-keyframes down {
+    from {-webkit-transform:translateX(-100%)}
+    to {-webkit-transform:translateX(0)}
+  }
+
+  @keyframes down {
+    from {transform:translateX(-100%)}
+    to {transform:translateX(0)}
+  }
+}
+
+.cart-list li {
+  padding: 25px 15px;
+  border-bottom: 2px solid var(--blue);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: 100%;
+  font-size: 15px;
+}
+
+.cart-list li p:first-child {
+  width: 30%;
+}
+.cart-list li p:nth-child(2) {
+  width: 50%;
+  font-family: var(--heading);
+  font-weight: bold;
+  padding: 0 5px;
+}
+.cart-list li p:last-child {
+  width: 20%;
+}
+
+.total-price {
+  font-family: var(--heading);
+  font-weight: bold;
+  padding-left: 15px;
+}
+
+@media screen and (min-width: 550px) {
+  .cart-list li {
+    font-size: 19px;
   }
 }

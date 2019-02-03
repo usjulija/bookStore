@@ -2,13 +2,15 @@ import React from 'react';
 import NavMenu from './NavMenu';
 import StoreCategory from './StoreCategory';
 import ProductsGallery from './ProductsGallery';
+import Cart from './Cart';
 import sampleBooks from '../books-data';
 
 class Store extends React.Component {
   state = {
     books: sampleBooks,
     order: {},
-    modal: false
+    modal: false,
+    cart: false
   };
 
   sortByCategory = (query) => {
@@ -34,6 +36,12 @@ class Store extends React.Component {
     this.setState({ books: myBooks });
   }
 
+  addToOrder = (key) => {
+    const order = {...this.state.order};
+    order[key] = order[key] + 1 || 1;
+    this.setState({ order });
+  }
+
   toggleModal = (query) => {
     const myBooks = {...this.state.books};
     Object.keys(myBooks).filter(key => {
@@ -50,13 +58,34 @@ class Store extends React.Component {
     this.setState({ books: myBooks });
   }
 
+  toggleCart = () => {
+    this.setState({cart: !this.state.cart});
+  }
+
   render() {
+    const shrinkStore = this.state.cart ? "store-right" : "";
     return (
-      <React.Fragment>
-        <NavMenu modal={this.state.modal}/>
-        <StoreCategory books={this.state.books} sortByCategory={this.sortByCategory} modal={this.state.modal}/>
-        <ProductsGallery books={this.state.books} toggleModal={this.toggleModal} modal={this.state.modal}/>
-      </React.Fragment>
+      <div className="store-main-page">
+        <NavMenu
+          modal={this.state.modal}
+          cart={this.state.cart}
+          toggleCart={this.toggleCart}/>
+        <Cart
+          cart={this.state.cart}
+          books={this.state.books}
+          order={this.state.order}/>
+        <div className={shrinkStore}>
+          <StoreCategory
+            books={this.state.books}
+            sortByCategory={this.sortByCategory}
+            modal={this.state.modal}/>
+          <ProductsGallery
+            books={this.state.books}
+            toggleModal={this.toggleModal}
+            modal={this.state.modal}
+            addToOrder={this.addToOrder}/>
+        </div>
+      </div>
     )
   }
 }

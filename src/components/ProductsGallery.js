@@ -12,6 +12,7 @@ class ProductsGallery extends React.Component {
             details={this.props.books[key]}
             toggleModal={this.props.toggleModal}
             modal={this.props.modal}
+            addToOrder={this.props.addToOrder}
             />
         ))}
       </div>
