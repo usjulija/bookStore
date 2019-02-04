@@ -13,35 +13,6 @@ class Store extends React.Component {
     cart: false
   };
 
-  sortByCategory = (query) => {
-    //takest the books objec
-    const myBooks = {...this.state.books};
-    //changes visibility to false for every book
-    Object.keys(myBooks).map(key => {
-      return myBooks[key].visible = false;
-    });
-    if (query === "all") {
-      Object.keys(myBooks).map(key => {
-        return myBooks[key].visible = true;
-      });
-    } else {
-      Object.keys(myBooks).map(key => {
-        if (query === myBooks[key].category) {
-          return myBooks[key].visible = true;
-        } else {
-          return myBooks[key].visible = false;
-        }
-      });
-    }
-    this.setState({ books: myBooks });
-  }
-
-  addToOrder = (key) => {
-    const order = {...this.state.order};
-    order[key] = order[key] + 1 || 1;
-    this.setState({ order });
-  }
-
   toggleModal = (query) => {
     const myBooks = {...this.state.books};
     Object.keys(myBooks).filter(key => {
@@ -62,8 +33,40 @@ class Store extends React.Component {
     this.setState({cart: !this.state.cart});
   }
 
+  sortByCategory = (query) => {
+    //takes the books object
+    const myBooks = {...this.state.books};
+    //changes visibility to false for every book
+    Object.keys(myBooks).map(key => {
+      return myBooks[key].visible = false;
+    });
+    //if all button pressed shows all books
+    if (query === "all") {
+      Object.keys(myBooks).map(key => {
+        return myBooks[key].visible = true;
+      });
+    } else {
+      Object.keys(myBooks).map(key => {
+        //if the button matches the book category the book is shown
+        if (query === myBooks[key].category) {
+          return myBooks[key].visible = true;
+        } else {
+          //otherwise hidden
+          return myBooks[key].visible = false;
+        }
+      });
+    }
+    this.setState({ books: myBooks });
+  }
+
+  addToOrder = (key) => {
+    const order = {...this.state.order};
+    order[key] = order[key] + 1 || 1;
+    this.setState({ order });
+  }
+
   render() {
-    const shrinkStore = this.state.cart ? "store-right" : "";
+    const shrinkStore = this.state.cart ? "store-right" : "store-center";
     return (
       <div className="store-main-page">
         <NavMenu
@@ -72,6 +75,7 @@ class Store extends React.Component {
           toggleCart={this.toggleCart}/>
         <Cart
           cart={this.state.cart}
+          toggleCart={this.toggleCart}
           books={this.state.books}
           order={this.state.order}/>
         <div className={shrinkStore}>

@@ -23,7 +23,7 @@ class Modal extends React.Component {
           </div>
           <article className="modal-right">
             <p className="description">{desc}</p>
-            <button disabled={!available} title={available ? "add to cart" : "sold out"} className="card-button" aria-label="add to cart">
+            <button disabled={!available} title={available ? "add to cart" : "sold out"} className="card-button" aria-label="add to cart" onClick={() => {this.props.addToOrder(this.props.index)}}>
               {available ? <img src={cart} alt="cart icon"/> : <img src={sold} alt="cart icon"/>}
             </button>
           </article>

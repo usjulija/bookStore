@@ -31,7 +31,7 @@ class ProductCard extends React.Component {
             </button>
           </div>
         </div>
-        <Modal index={this.props.index} details={this.props.details} toggleModal={this.props.toggleModal}/>
+        <Modal index={this.props.index} details={this.props.details} toggleModal={this.props.toggleModal} addToOrder={this.props.addToOrder}/>
       </React.Fragment>
     )
   }

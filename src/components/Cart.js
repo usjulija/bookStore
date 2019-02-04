@@ -33,6 +33,7 @@ class Cart extends React.Component {
     const clsForCart = `store-left cart ${cartVisibility}`;
     return (
       <div className={clsForCart}>
+        <button className="close-cart" onClick={this.props.toggleCart}>&times;</button>
         <h2>Your cart</h2>
         <ul className="cart-list">{orderIds.map(this.renderOrder)}</ul>
         <p className="total-price">Total: {formatPrice(total)}</p>
