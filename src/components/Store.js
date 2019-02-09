@@ -3,6 +3,7 @@ import NavMenu from './NavMenu';
 import StoreCategory from './StoreCategory';
 import ProductsGallery from './ProductsGallery';
 import Cart from './Cart';
+import AdminMenu from './AdminMenu';
 import sampleBooks from '../books-data';
 
 class Store extends React.Component {
@@ -10,7 +11,8 @@ class Store extends React.Component {
     books: sampleBooks,
     order: {},
     modal: false,
-    cart: false
+    cart: false,
+    adminMenu: false
   };
 
   toggleModal = (query) => {
@@ -25,12 +27,19 @@ class Store extends React.Component {
           this.setState({ modal: true });
         }
       }
+      return null;
     });
     this.setState({ books: myBooks });
   }
 
   toggleCart = () => {
+    this.setState({adminMenu: false});
     this.setState({cart: !this.state.cart});
+  }
+
+  toggleAdminMenu = () => {
+    this.setState({cart: false});
+    this.setState({adminMenu: !this.state.adminMenu});
   }
 
   sortByCategory = (query) => {
@@ -66,16 +75,25 @@ class Store extends React.Component {
   }
 
   render() {
-    const shrinkStore = this.state.cart ? "store-right" : "store-center";
+    const shrinkStore = this.state.cart || this.state.adminMenu ? "store-right" : "store-center";
     return (
       <div className="store-main-page">
         <NavMenu
+          books={this.state.books}
+          order={this.state.order}
           modal={this.state.modal}
           cart={this.state.cart}
-          toggleCart={this.toggleCart}/>
+          adminMenu={this.state.adminMenu}
+          toggleCart={this.toggleCart}
+          toggleAdminMenu={this.toggleAdminMenu}/>
         <Cart
           cart={this.state.cart}
           toggleCart={this.toggleCart}
+          books={this.state.books}
+          order={this.state.order}/>
+        <AdminMenu
+          adminMenu={this.state.adminMenu}
+          toggleAdminMenu={this.toggleAdminMenu}
           books={this.state.books}
           order={this.state.order}/>
         <div className={shrinkStore}>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from './Modal';
-import cart from './images/001-add-to-cart.svg';
-import info from './images/002-info.svg';
+import cart from './images/add-to-cart.svg';
+import info from './images/info.svg';
 import sold from './images/sold.svg';
 import { formatPrice } from '../helper';
 
@@ -21,7 +21,7 @@ class ProductCard extends React.Component {
             </div>
               <p className="price">{formatPrice(price)}</p>
           </div>
-          <img className="cover" src={image} alt={name}/>
+          <img className="cover" src={image} alt={name} title="click to read book description" onClick={() => { this.props.toggleModal(name) }}/>
           <div className="card-footer">
             <button disabled={!available} tabIndex={tabindex} title={available ? "add to cart" : "sold out"} className="card-button" aria-label="add to cart" onClick={() => {this.props.addToOrder(this.props.index)}}>
               {available ? <img src={cart} alt="cart icon"/> : <img src={sold} alt="cart icon"/>}

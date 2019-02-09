@@ -1,7 +1,7 @@
 import React from 'react';
 import { formatPrice } from '../helper';
 import sold from './images/sold.svg';
-import cart from './images/001-add-to-cart.svg';
+import cart from './images/add-to-cart.svg';
 
 class Modal extends React.Component {
   render() {
@@ -23,7 +23,7 @@ class Modal extends React.Component {
           </div>
           <article className="modal-right">
             <p className="description">{desc}</p>
-            <button disabled={!available} title={available ? "add to cart" : "sold out"} className="card-button" aria-label="add to cart" onClick={() => {this.props.addToOrder(this.props.index)}}>
+            <button disabled={!available} title={available ? "add to cart" : "sold out"} className="card-button-modal" aria-label="add to cart" onClick={() => {this.props.addToOrder(this.props.index)}}>
               {available ? <img src={cart} alt="cart icon"/> : <img src={sold} alt="cart icon"/>}
             </button>
           </article>

@@ -1,7 +1,7 @@
 import React from 'react';
-import allBooks from './images/003-books.svg';
+import allBooks from './images/books.svg';
 import fiction from './images/001-android.svg';
-import fantasy from './images/002-unicorn.svg';
+import fantasy from './images/fantasy.svg';
 import novel from './images/004-book.svg';
 
 class StoreCategory extends React.Component {
