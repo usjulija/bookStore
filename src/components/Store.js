@@ -5,15 +5,23 @@ import ProductsGallery from './ProductsGallery';
 import Cart from './Cart';
 import AdminMenu from './AdminMenu';
 import sampleBooks from '../books-data';
+import base from '../base';
 
 class Store extends React.Component {
   state = {
-    books: sampleBooks,
+    books: {},
     order: {},
     modal: false,
     cart: false,
     adminMenu: false
   };
+
+  componentDidMount() {
+    this.ref = base.syncState("/store/books", {
+      context: this,
+      state: "books"
+    });
+  }
 
   toggleModal = (query) => {
     const myBooks = {...this.state.books};
@@ -74,6 +82,16 @@ class Store extends React.Component {
     this.setState({ order });
   }
 
+  addBook = (book) => {
+    const books = {...this.state.books};
+    books[`book${Date.now()}`] = book;
+    this.setState({ books });
+  }
+
+  loadSamples = () => {
+    this.setState({ books: sampleBooks });
+  }
+
   render() {
     const shrinkStore = this.state.cart || this.state.adminMenu ? "store-right" : "store-center";
     return (
@@ -87,15 +105,19 @@ class Store extends React.Component {
           toggleCart={this.toggleCart}
           toggleAdminMenu={this.toggleAdminMenu}/>
         <Cart
+          modal={this.state.modal}
           cart={this.state.cart}
           toggleCart={this.toggleCart}
           books={this.state.books}
           order={this.state.order}/>
         <AdminMenu
+          modal={this.state.modal}
           adminMenu={this.state.adminMenu}
           toggleAdminMenu={this.toggleAdminMenu}
           books={this.state.books}
-          order={this.state.order}/>
+          order={this.state.order}
+          addBook={this.addBook}
+          loadSamples={this.loadSamples}/>
         <div className={shrinkStore}>
           <StoreCategory
             books={this.state.books}

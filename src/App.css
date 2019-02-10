@@ -50,7 +50,8 @@ ul {
 .topnav button span,
 .topnav button,
 .cart-list li,
-.not-found {
+.not-found,
+.add-product-form {
   display: flex;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -167,12 +168,12 @@ ul {
     width: 50%;
   }
 }
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 1150px) {
   .store-right {
-    width: 70%;
+    width: 60%;
   }
   .store-left {
-    width: 30%;
+    width: 40%;
   }
 }
 /* ========= Top Navigation style ======= */
@@ -634,4 +635,86 @@ ul {
 .adminMenu {
   background-color: #ffc5b7;
   padding: 25px;
+}
+
+.add-product-form {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px 5px;
+  flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
+  border: 2px solid #d7a194;
+  border-radius: 10px;
+  background-color: #f9d2c9;
+  box-shadow: 0 4px 4px #fcae9a;
+}
+
+.add-product-form p {
+  text-align: center;
+  width: 100%;
+}
+
+.add-product-form input,
+.add-product-form select,
+.add-product-form textarea {
+  font-family: var(--main);
+  font-size: 17px;
+  padding: 5px 10px;
+  border: 2px solid white;
+  margin: 3px;
+  border-radius: 5px;
+  color: var(--black);
+}
+
+.add-product-form input:focus,
+.add-product-form select:focus,
+.add-product-form textarea:focus {
+  outline: 0;
+  border: 2px solid var(--light-red);
+}
+
+.add-product-form input[name='name'],
+.add-product-form input[name='author'] {
+  width: 47%;
+}
+
+.add-product-form input[name='price'],
+.add-product-form select {
+  width: 31%;
+}
+
+.add-product-form textarea,
+.add-product-form input[name='image'] {
+  width: 96%;
+}
+
+.add-product-form button[type='submit'],
+.load-samples {
+  width: 96%;
+  background-color: white;
+  border: 2px solid var(--light-red);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 3px;
+  font-size: 17px;
+  color: var(--light-red);
+  cursor: pointer;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.add-product-form button[type='submit']:hover,
+.add-product-form button[type='submit']:focus,
+.load-samples:hover,
+.load-samples:focus {
+  outline: 0;
+  background-color: var(--light-red);
+  color: white;
+}
+
+.load-samples {
+  width: 99%;
+  margin-top: 10px;
 }
