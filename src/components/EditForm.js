@@ -11,6 +11,7 @@ class EditForm extends React.Component {
       available: PropTypes.bool,
       desc: PropTypes.string,
       category: PropTypes.string,
+      visible: PropTypes.bool
     }),
     modal: PropTypes.bool,
     updateBook: PropTypes.func,
@@ -27,9 +28,11 @@ class EditForm extends React.Component {
   }
   render() {
     const tabindex = this.props.modal ? "-1" : "0";
-    const { name, author, price, available, category, desc, image } = this.props.details;
+    const { name, author, price, available, category, desc, image, visible } = this.props.details;
+    const additional = visible ? "show" : "";
+    const classAdditionalName = additional + " add-product-form";
     return (
-      <div className="add-product-form" onSubmit={this.createBook}>
+      <div className={classAdditionalName} onSubmit={this.createBook}>
         <p>Update {name}:</p>
         <input
           tabIndex={tabindex}

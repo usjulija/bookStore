@@ -4,6 +4,7 @@ import StoreCategory from './StoreCategory';
 import ProductsGallery from './ProductsGallery';
 import Cart from './Cart';
 import AdminMenu from './AdminMenu';
+import Search from './Search';
 import sampleBooks from '../books-data';
 import base from '../base';
 
@@ -84,6 +85,29 @@ class Store extends React.Component {
     this.setState({ books: myBooks });
   }
 
+  searchFilter = (query) => {
+    const filter = query.toUpperCase();
+    console.log(filter);
+    //takes the books object
+    const myBooks = {...this.state.books};
+    //changes visibility to false for every book
+    Object.keys(myBooks).map(key => {
+      return myBooks[key].visible = false;
+    });
+
+    Object.keys(myBooks).map(key => {
+      //if the query matches the book category the book is shown
+      const textValue = myBooks[key].name.toUpperCase();
+      if (textValue.indexOf(filter) > -1) {
+        return myBooks[key].visible = true;
+      } else {
+        //otherwise hidden
+        return myBooks[key].visible = false;
+      }
+    });
+    this.setState({ books: myBooks });
+  }
+
   addBook = (book) => {
     const books = {...this.state.books};
     books[`book${Date.now()}`] = book;
@@ -130,6 +154,10 @@ class Store extends React.Component {
           adminMenu={this.state.adminMenu}
           toggleCart={this.toggleCart}
           toggleAdminMenu={this.toggleAdminMenu}
+        />
+        <Search
+          searchFilter={this.searchFilter}
+          modal={this.state.modal}
         />
         <Cart
           modal={this.state.modal}

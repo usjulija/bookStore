@@ -34,7 +34,7 @@ class Form extends React.Component {
   render() {
     const tabindex = this.props.modal ? "-1" : "0";
     return (
-      <form className="add-product-form" onSubmit={this.createBook}>
+      <form className="add-product-form show" onSubmit={this.createBook}>
         <p>New book:</p>
         <input
           ref={this.nameRef}
