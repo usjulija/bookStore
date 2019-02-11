@@ -52,7 +52,8 @@ ul {
 .topnav button,
 .cart-list li,
 .not-found,
-.add-product-form {
+.add-product-form,
+.log-in {
   display: flex;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -735,6 +736,60 @@ ul {
   margin-top: 10px;
 }
 
+.github,
+.facebook {
+  width: 250px;
+  height: 50px;
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin: 3px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+
+.github {
+  background-color: var(--black);
+}
+
+.facebook {
+  background-color: var(--blue);
+}
+
+.github:hover,
+.facebook:hover,
+.github:focus,
+.facebook:focus {
+  outline: 0;
+  background-color: var(--light-red);
+}
+
+.log-in {
+  flex-flow: column;
+  -webkit-flex-flow: column;
+}
+
+.logout {
+  padding: 10px 15px;
+  background: white;
+  color: var(--light-red);
+  border: 2px solid var(--light-red);
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.logout:hover,
+.logout:focus {
+ background-color: var(--light-red);
+ color: white;
+}
 /* ========= ANIMATIONS ======= */
 .store-left {
   -webkit-animation-name: down;

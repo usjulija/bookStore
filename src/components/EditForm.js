@@ -24,8 +24,28 @@ class EditForm extends React.Component {
       ...this.props.details,
       [e.currentTarget.name]: e.currentTarget.value
     };
+    console.log(e.currentTarget.name);
     this.props.updateBook(this.props.index, updatedBook);
   }
+
+  handleChangePrice = (e) => {
+    const updatedBook = {
+      ...this.props.details,
+      [e.currentTarget.name]: parseFloat(e.currentTarget.value)
+    };
+    console.log(e.currentTarget.name);
+    this.props.updateBook(this.props.index, updatedBook);
+  }
+
+  handleChangeBool = (e) => {
+    const updatedBook = {
+      ...this.props.details,
+      [e.currentTarget.name]: JSON.parse(e.currentTarget.value)
+    };
+    console.log(e.currentTarget.name);
+    this.props.updateBook(this.props.index, updatedBook);
+  }
+
   render() {
     const tabindex = this.props.modal ? "-1" : "0";
     const { name, author, price, available, category, desc, image, visible } = this.props.details;
@@ -53,13 +73,13 @@ class EditForm extends React.Component {
           type="text"
           name="price"
           value={price}
-          onChange={this.handleChange}
+          onChange={this.handleChangePrice}
         />
         <select
           tabIndex={tabindex}
           name="available"
           value={available}
-          onChange={this.handleChange}>
+          onChange={this.handleChangeBool}>
           <option value="true">Available</option>
           <option value="false">Sold out</option>
         </select>
