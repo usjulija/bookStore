@@ -1,8 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import mainImage from './images/main.svg';
 
 class MainPage extends React.Component {
-  loadStore= () => {
+  static propTypes = {
+    history: PropTypes.object
+  };
+
+  loadStore = () => {
     this.props.history.push('/store');
   }
   render() {

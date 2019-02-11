@@ -1,10 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import allBooks from './images/books.svg';
 import fiction from './images/001-android.svg';
 import fantasy from './images/fantasy.svg';
 import novel from './images/004-book.svg';
 
 class StoreCategory extends React.Component {
+  static propTypes = {
+    modal: PropTypes.bool,
+    sortByCategory: PropTypes.func
+  };
   render() {
     const tabindex = this.props.modal ? "-1" : "0";
     return (

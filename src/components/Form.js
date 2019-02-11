@@ -1,6 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Form extends React.Component {
+  static propTypes = {
+    addBook: PropTypes.func,
+    modal: PropTypes.bool
+  };
+
   nameRef = React.createRef();
   authorRef = React.createRef();
   priceRef = React.createRef();

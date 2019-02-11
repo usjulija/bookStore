@@ -1,9 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import logo from './images/logo.png';
 import cart from './images/cart.svg';
 import gear from './images/gear.svg';
 
 class NavMenu extends React.Component {
+  static propTypes = {
+    modal: PropTypes.bool,
+    order: PropTypes.object,
+    books: PropTypes.object,
+    toggleCart: PropTypes.func,
+    toggleAdminMenu: PropTypes.func,
+  };
   render() {
     const tabindex = this.props.modal ? "-1" : "0";
     const orderIds = Object.keys(this.props.order);

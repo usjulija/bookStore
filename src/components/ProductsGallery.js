@@ -1,7 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ProductCard from './ProductCard';
 
 class ProductsGallery extends React.Component {
+  static propTypes = {
+    books: PropTypes.object,
+    toggleModal: PropTypes.func,
+    addToOrder: PropTypes.func,
+    modal: PropTypes.bool
+  };
   render() {
     return (
       <div className="products-gallery">

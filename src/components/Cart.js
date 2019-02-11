@@ -1,7 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { formatPrice } from '../helper';
 
 class Cart extends React.Component {
+  static propTypes = {
+    books: PropTypes.object,
+    order: PropTypes.object,
+    modal: PropTypes.bool,
+    cart: PropTypes.bool,
+    deleteFromOrder: PropTypes.func,
+    toggleCart: PropTypes.func
+  };
+
   renderOrder = (key) => {
     const book = this.props.books[key];
     const count = this.props.order[key];

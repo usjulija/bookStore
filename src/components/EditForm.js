@@ -1,6 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class EditForm extends React.Component {
+  static propTypes = {
+    details: PropTypes.shape({
+      image: PropTypes.string,
+      name: PropTypes.string,
+      price: PropTypes.number,
+      author: PropTypes.string,
+      available: PropTypes.bool,
+      desc: PropTypes.string,
+      category: PropTypes.string,
+    }),
+    modal: PropTypes.bool,
+    updateBook: PropTypes.func,
+    deleteBook: PropTypes.func,
+    index: PropTypes.string
+  };
+
   handleChange = (e) => {
     const updatedBook = {
       ...this.props.details,
@@ -10,34 +27,35 @@ class EditForm extends React.Component {
   }
   render() {
     const tabindex = this.props.modal ? "-1" : "0";
+    const { name, author, price, available, category, desc, image } = this.props.details;
     return (
       <div className="add-product-form" onSubmit={this.createBook}>
-        <p>Update {this.props.details.name}:</p>
+        <p>Update {name}:</p>
         <input
           tabIndex={tabindex}
           type="text"
           name="name"
-          value={this.props.details.name}
+          value={name}
           onChange={this.handleChange}
         />
         <input
           tabIndex={tabindex}
           type="text"
           name="author"
-          value={this.props.details.author}
+          value={author}
           onChange={this.handleChange}
         />
         <input
           tabIndex={tabindex}
           type="text"
           name="price"
-          value={this.props.details.price}
+          value={price}
           onChange={this.handleChange}
         />
         <select
           tabIndex={tabindex}
           name="available"
-          value={this.props.details.available}
+          value={available}
           onChange={this.handleChange}>
           <option value="true">Available</option>
           <option value="false">Sold out</option>
@@ -45,7 +63,7 @@ class EditForm extends React.Component {
         <select
           tabIndex={tabindex}
           name="category"
-          value={this.props.details.category}
+          value={category}
           onChange={this.handleChange}>
           <option value="fantasy">Fantasy</option>
           <option value="fiction">Fiction</option>
@@ -54,13 +72,13 @@ class EditForm extends React.Component {
         <textarea
           tabIndex={tabindex}
           name="desc"
-          value={this.props.details.desc}
+          value={desc}
           onChange={this.handleChange}></textarea>
         <input
           tabIndex={tabindex}
           type="text"
           name="image"
-          value={this.props.details.image}
+          value={image}
           onChange={this.handleChange}
         />
         <button

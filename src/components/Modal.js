@@ -1,13 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { formatPrice } from '../helper';
 import sold from './images/sold.svg';
 import cart from './images/add-to-cart.svg';
 
 class Modal extends React.Component {
+  static propTypes = {
+    details: PropTypes.shape({
+      image: PropTypes.string,
+      name: PropTypes.string,
+      price: PropTypes.number,
+      author: PropTypes.string,
+      modalVisible: PropTypes.bool,
+      desc: PropTypes.string,
+      available: PropTypes.bool
+    }),
+    addToOrder: PropTypes.func,
+    toggleModal: PropTypes.func,
+    index: PropTypes.string
+  };
+
   render() {
     const id = `myModal${this.props.index}`;
     const { image, name, price, author, desc, modalVisible, available } = this.props.details;
-    const modalClass = `modal ${modalVisible ? "visible" : "hidden"}`;
+    const additionalClass = modalVisible ? "visible" : "hidden";
+    const modalClass = `modal ${additionalClass}`;
     return (
       <div className={modalClass} id={id}>
         <div className="modal-content">

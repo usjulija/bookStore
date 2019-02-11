@@ -512,64 +512,6 @@ ul {
   padding: 25px;
 }
 
-.store-left {
-  -webkit-animation-name: down;
-  -webkit-animation-duration: 0.6s;
-  animation-name: down;
-  animation-duration: 0.6s;
-}
-
-@-webkit-keyframes down {
-  from {-webkit-transform:translateY(-100%)}
-  to {-webkit-transform:translateY(0)}
-}
-
-@keyframes down {
-  from {transform:translateY(-100%)}
-  to {transform:translateY(0)}
-}
-
-@media screen and (min-width: 850px) {
-  @-webkit-keyframes down {
-    from {-webkit-transform:translateX(-100%)}
-    to {-webkit-transform:translateX(0)}
-  }
-
-  @keyframes down {
-    from {transform:translateX(-100%)}
-    to {transform:translateX(0)}
-  }
-}
-
-.store-right {
-  -webkit-animation-name: up;
-  -webkit-animation-duration: 0.6s;
-  animation-name: up;
-  animation-duration: 0.6s;
-}
-
-@-webkit-keyframes up {
-  from {-webkit-transform:translateY(-10%)}
-  to {-webkit-transform:translateY(0%)}
-}
-
-@keyframes up {
-  from {transform:translateY(-10%)}
-  to {transform:translateY(0%)}
-}
-
-@media screen and (min-width: 850px) {
-  @-webkit-keyframes up {
-    from {-webkit-transform:translateX(-10%)}
-    to {-webkit-transform:translateX(0)}
-  }
-
-  @keyframes up {
-    from {transform:translateX(-10%)}
-    to {transform:translateX(0)}
-  }
-}
-
 .cart-list li {
   padding: 25px 15px;
   border-bottom: 2px solid var(--blue);
@@ -750,4 +692,63 @@ ul {
 .load-samples {
   width: 99%;
   margin-top: 10px;
+}
+
+/* ========= ANIMATIONS ======= */
+.store-left {
+  -webkit-animation-name: down;
+  -webkit-animation-duration: 0.6s;
+  animation-name: down;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes down {
+  from {-webkit-transform:translateY(-100%)}
+  to {-webkit-transform:translateY(0)}
+}
+
+@keyframes down {
+  from {transform:translateY(-100%)}
+  to {transform:translateY(0)}
+}
+
+@media screen and (min-width: 850px) {
+  @-webkit-keyframes down {
+    from {-webkit-transform:translateX(-100%)}
+    to {-webkit-transform:translateX(0)}
+  }
+
+  @keyframes down {
+    from {transform:translateX(-100%)}
+    to {transform:translateX(0)}
+  }
+}
+
+.store-right {
+  -webkit-animation-name: up;
+  -webkit-animation-duration: 0.6s;
+  animation-name: up;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes up {
+  from {-webkit-transform:translateY(-10%)}
+  to {-webkit-transform:translateY(0%)}
+}
+
+@keyframes up {
+  from {transform:translateY(-10%)}
+  to {transform:translateY(0%)}
+}
+
+@media screen and (min-width: 850px) {
+  @-webkit-keyframes up {
+    from {-webkit-transform:translateX(-10%)}
+    to {-webkit-transform:translateX(0)}
+  }
+
+  @keyframes up {
+    from {transform:translateX(-10%)}
+    to {transform:translateX(0)}
+  }
 }

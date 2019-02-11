@@ -1,8 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Form from './Form';
 import EditForm from './EditForm';
 
 class AdminMenu extends React.Component {
+  static propTypes = {
+    books: PropTypes.object,
+    modal: PropTypes.bool,
+    adminMenu: PropTypes.bool,
+    addBook: PropTypes.func,
+    updateBook: PropTypes.func,
+    deleteBook: PropTypes.func,
+    toggleAdminMenu: PropTypes.func,
+    loadSamples: PropTypes.func
+  };
   render() {
     const tabindex = this.props.modal ? "-1" : "0";
     const menuVisibility = this.props.adminMenu ? "visible" : "hidden";

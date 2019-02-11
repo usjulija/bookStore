@@ -1,11 +1,26 @@
 import React from 'react';
 import Modal from './Modal';
+import PropTypes from 'prop-types';
 import cart from './images/add-to-cart.svg';
 import info from './images/info.svg';
 import sold from './images/sold.svg';
 import { formatPrice } from '../helper';
 
 class ProductCard extends React.Component {
+  static propTypes = {
+    details: PropTypes.shape({
+      image: PropTypes.string,
+      name: PropTypes.string,
+      price: PropTypes.number,
+      author: PropTypes.string,
+      visible: PropTypes.bool,
+      available: PropTypes.bool
+    }),
+    modal: PropTypes.bool,
+    addToOrder: PropTypes.func,
+    toggleModal: PropTypes.func,
+    index: PropTypes.string
+  };
   render() {
     const { image, name, price, author, visible, available } = this.props.details;
     const additional = visible ? "show" : "";
