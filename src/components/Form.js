@@ -30,20 +30,57 @@ class Form extends React.Component {
     return (
       <form className="add-product-form" onSubmit={this.createBook}>
         <p>New book:</p>
-        <input ref={this.nameRef} tabIndex={tabindex} type="text" name="name" placeholder="Book name" required/>
-        <input ref={this.authorRef} tabIndex={tabindex} type="text" name="author" placeholder="Book author" required/>
-        <input ref={this.priceRef} tabIndex={tabindex} type="text" name="price" placeholder="Price" required/>
-        <select ref={this.avRef} tabIndex={tabindex} name="available" required>
+        <input
+          ref={this.nameRef}
+          tabIndex={tabindex}
+          type="text"
+          name="name"
+          placeholder="Book name"
+          required/>
+        <input
+          ref={this.authorRef}
+          tabIndex={tabindex}
+          type="text"
+          name="author"
+          placeholder="Book author"
+          required/>
+        <input
+          ref={this.priceRef}
+          tabIndex={tabindex}
+          type="text"
+          name="price"
+          placeholder="Price"
+          required/>
+        <select
+          ref={this.avRef}
+          tabIndex={tabindex}
+          name="available"
+          required>
           <option value="true">Available</option>
           <option value="false">Sold out</option>
         </select>
-        <select ref={this.catRef} tabIndex={tabindex} name="category" required>
+        <select
+          ref={this.catRef}
+          tabIndex={tabindex}
+          name="category"
+          required>
           <option value="fantasy">Fantasy</option>
           <option value="fiction">Fiction</option>
           <option value="novel">Novel</option>
         </select>
-        <textarea ref={this.descRef} tabIndex={tabindex} name="desc" placeholder="Book description" required></textarea>
-        <input ref={this.imageRef} tabIndex={tabindex} type="text" name="image" placeholder="Book image" required/>
+        <textarea
+          ref={this.descRef}
+          tabIndex={tabindex}
+          name="desc"
+          placeholder="Book description"
+          required></textarea>
+        <input
+          ref={this.imageRef}
+          tabIndex={tabindex}
+          type="text"
+          name="image"
+          placeholder="Book image"
+          required/>
         <button tabIndex={tabindex} type="submit">+ Add book</button>
       </form>
     )

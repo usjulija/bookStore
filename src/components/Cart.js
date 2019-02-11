@@ -5,12 +5,18 @@ class Cart extends React.Component {
   renderOrder = (key) => {
     const book = this.props.books[key];
     const count = this.props.order[key];
-    if(book.available) {
+    const tabindex = this.props.modal ? "-1" : "0";
+    if (!book) return null; //make sure the book is loaded
+    if (book && book.available) {
       return (
         <li key={key}>
           <p>{count} book(s)</p>
           <p>{book.name}</p>
           <p>{formatPrice(count * book.price)}</p>
+          <button
+            title="remove from order"
+            tabIndex={tabindex}
+            onClick={() => {this.props.deleteFromOrder(key)}}>&times;</button>
         </li>
       );
     } else {

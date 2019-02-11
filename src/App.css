@@ -166,6 +166,8 @@ ul {
   .store-right,
   .store-left {
     width: 50%;
+    height: calc(100vh - 115px);
+    overflow: scroll;
   }
 }
 @media screen and (min-width: 1150px) {
@@ -435,7 +437,7 @@ ul {
 
 .close:hover,
 .close:focus {
-  color: var(--blue);
+  color: var(--light-red);
   text-decoration: none;
   cursor: pointer;
   outline: 0;
@@ -573,10 +575,20 @@ ul {
   border-bottom: 2px solid var(--blue);
   width: 100%;
   font-size: 15px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.cart-list li:hover {
+  background-color: #fae0da;
+}
+
+.cart-list li:hover button {
+  opacity: 1;
 }
 
 .cart-list li p:first-child {
-  width: 30%;
+  width: 20%;
 }
 .cart-list li p:nth-child(2) {
   width: 50%;
@@ -584,8 +596,26 @@ ul {
   font-weight: bold;
   padding: 0 5px;
 }
-.cart-list li p:last-child {
+.cart-list li p:nth-child(3) {
   width: 20%;
+}
+.cart-list li button {
+  width: 10%;
+  border: 0;
+  background-color: transparent;
+  font-size: 35px;
+  color: var(--black);
+  cursor: pointer;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  opacity: 0;
+}
+
+.cart-list li button:hover,
+.cart-list li button:focus {
+  color: var(--light-red);
+  outline: 0;
+  opacity: 1;
 }
 
 .total-price {
@@ -607,7 +637,7 @@ ul {
 
 .close-cart:hover,
 .close-cart:focus {
-  color: var(--blue);
+  color: var(--light-red);
   text-decoration: none;
   cursor: pointer;
   outline: 0;
@@ -633,7 +663,7 @@ ul {
 
 /* ========= Administrator view ======= */
 .adminMenu {
-  background-color: #ffc5b7;
+  background-color: #fae0da;
   padding: 25px;
 }
 
@@ -689,7 +719,8 @@ ul {
 }
 
 .add-product-form button[type='submit'],
-.load-samples {
+.load-samples,
+.remove-book-button {
   width: 96%;
   background-color: white;
   border: 2px solid var(--light-red);
@@ -708,7 +739,9 @@ ul {
 .add-product-form button[type='submit']:hover,
 .add-product-form button[type='submit']:focus,
 .load-samples:hover,
-.load-samples:focus {
+.load-samples:focus,
+.remove-book-button:hover,
+.remove-book-button:focus {
   outline: 0;
   background-color: var(--light-red);
   color: white;

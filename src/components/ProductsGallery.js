@@ -13,7 +13,7 @@ class ProductsGallery extends React.Component {
             toggleModal={this.props.toggleModal}
             modal={this.props.modal}
             addToOrder={this.props.addToOrder}
-            />
+          />
         ))}
       </div>
     )

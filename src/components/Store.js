@@ -17,10 +17,18 @@ class Store extends React.Component {
   };
 
   componentDidMount() {
+    const localStorageRef = localStorage.getItem('store');
+    if(localStorageRef){
+      this.setState({ order: JSON.parse(localStorageRef)});
+    }
     this.ref = base.syncState("/store/books", {
       context: this,
       state: "books"
     });
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('store', JSON.stringify(this.state.order));
   }
 
   toggleModal = (query) => {
@@ -76,20 +84,38 @@ class Store extends React.Component {
     this.setState({ books: myBooks });
   }
 
-  addToOrder = (key) => {
-    const order = {...this.state.order};
-    order[key] = order[key] + 1 || 1;
-    this.setState({ order });
-  }
-
   addBook = (book) => {
     const books = {...this.state.books};
     books[`book${Date.now()}`] = book;
     this.setState({ books });
   }
 
+  updateBook = (key, updatedBook) => {
+    const books = {...this.state.books};
+    books[key] = updatedBook;
+    this.setState({ books });
+  }
+
+  deleteBook = (key) => {
+    const books = {...this.state.books};
+    books[key] = null;
+    this.setState({ books });
+  }
+
   loadSamples = () => {
     this.setState({ books: sampleBooks });
+  }
+
+  addToOrder = (key) => {
+    const order = {...this.state.order};
+    order[key] = order[key] + 1 || 1;
+    this.setState({ order });
+  }
+
+  deleteFromOrder = (key) => {
+    const order = {...this.state.order};
+    delete order[key];
+    this.setState({ order });
   }
 
   render() {
@@ -103,13 +129,16 @@ class Store extends React.Component {
           cart={this.state.cart}
           adminMenu={this.state.adminMenu}
           toggleCart={this.toggleCart}
-          toggleAdminMenu={this.toggleAdminMenu}/>
+          toggleAdminMenu={this.toggleAdminMenu}
+        />
         <Cart
           modal={this.state.modal}
           cart={this.state.cart}
           toggleCart={this.toggleCart}
           books={this.state.books}
-          order={this.state.order}/>
+          order={this.state.order}
+          deleteFromOrder={this.deleteFromOrder}
+        />
         <AdminMenu
           modal={this.state.modal}
           adminMenu={this.state.adminMenu}
@@ -117,17 +146,22 @@ class Store extends React.Component {
           books={this.state.books}
           order={this.state.order}
           addBook={this.addBook}
-          loadSamples={this.loadSamples}/>
+          loadSamples={this.loadSamples}
+          updateBook ={this.updateBook}
+          deleteBook={this.deleteBook}
+        />
         <div className={shrinkStore}>
           <StoreCategory
             books={this.state.books}
             sortByCategory={this.sortByCategory}
-            modal={this.state.modal}/>
+            modal={this.state.modal}
+          />
           <ProductsGallery
             books={this.state.books}
             toggleModal={this.toggleModal}
             modal={this.state.modal}
-            addToOrder={this.addToOrder}/>
+            addToOrder={this.addToOrder}
+          />
         </div>
       </div>
     )
