@@ -1,7 +1,8 @@
 # ReadMore book store
 This is an on-line book store project, built with ReactJS.
 
-[Live preview]()
+[Live preview](https://redmore-books.netlify.com/)
+![preview](https://i.ibb.co/c3nFmBp/template.jpg)
 
 ## Project specifications
 The single page app is designed from scratch, using ReactJS.
